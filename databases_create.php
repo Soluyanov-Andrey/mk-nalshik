@@ -1,12 +1,13 @@
 <?php
 /**
  *  Запуская данный файл,  скрипт создает таблицу в базе данных и ее заполняет.
+ *  
  */
+
 mb_internal_encoding("UTF-8");
 
 
 $mysqli = new mysqli("mk-nalshik.default", "Andrey", "Qwerty123", "mk-nalshik");
-
 $mysqli->query("SET NAMES 'utf8'"); 
 $mysqli->query("SET CHARACTER SET 'utf8'");
 $mysqli->query("SET SESSION collation_connection = 'utf8_general_ci'");
@@ -46,7 +47,6 @@ var_dump($mysqli);
 
 $query = '
 INSERT INTO gamer_ecording VALUES
- (\'NULL\',\'Prins\',\'Принц персия\',\'Prince of Persia — серия компьютерных игр в жанре action-adventure. Первая игра серии была создана Джорданом Мекнером и компанией Brøderbund. \',\'1989-01-01\',\'/images/Prins.jpg\',100),
  (\'NULL\',\'Stray\',\'Stray\',\'Lost, alone, and separated from family, a stray cat must untangle an ancient mystery to escape a long-forgotten cybercity and find the way home\',\'2022-01-01\',\'/images/Stray.jpg\',52),
  (\'NULL\',\'The_Quarry\',\'The Quarry\',\' The Quarry — компьютерная игра в жанрах интерактивного фильма и survival horror, созданная Supermassive Games и изданная 2K Games 10 июня 2022 года. Она является духовным наследником Until Dawn и была выпущена для Windows, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S  \',\'2022-05-10\',\'/images/The_Quarry.jpg\',35),
  (\'NULL\',\'Cult_Lamb\',\'Cult of the Lamb\',\' Cult of the Lamb — это приключенческая игра в жанре roguelike, разработанная независимым разработчиком Massive Monster и изданная Devolver Digital. Игра была выпущена 11 августа 2022 года для macOS, Nintendo Switch, PlayStation 4, PlayStation 5, Windows, Xbox One и Xbox Series X/S. \',\'2022-07-11\',\'/images/Cult_Lamb.jpg\',24),
