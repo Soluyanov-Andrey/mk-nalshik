@@ -1,4 +1,7 @@
 <?php
+/**
+ *  Запуская данный файл,  скрипт создает таблицу в базе данных и ее заполняет.
+ */
 mb_internal_encoding("UTF-8");
 
 
@@ -8,7 +11,7 @@ $mysqli->query("SET NAMES 'utf8'");
 $mysqli->query("SET CHARACTER SET 'utf8'");
 $mysqli->query("SET SESSION collation_connection = 'utf8_general_ci'");
 
-// Чистый запрос на sql.
+// Чистый пример запроса на sql.
 // CREATE TABLE gamer_ecording
 // (
 //     id INT NOT NULL AUTO_INCREMENT COMMENT 'id таблицы',
@@ -38,7 +41,7 @@ $query = 'CREATE TABLE `gamer_ecording`
 $mysqli->query($query);
 var_dump($mysqli);
 
-// Чистый запрос на sql.
+// Чистый пример запроса на sql.
 //INSERT INTO gamer_ecording VALUES (NULL,'ТОВАР','ТОВАР','ТОВАР','2007-10-23','http/12/14',0); 
 
 $query = '
