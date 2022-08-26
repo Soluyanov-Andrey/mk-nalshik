@@ -6,6 +6,14 @@
  */
 class add_function{
 
+
+	// Метод selection_of_parts, возвращает массив из разобранного url,
+	// например, передали http://localhost/game/1, вернет,
+	//   array (size=3)
+	//   0 => string '' (length=0)
+	//   1 => string 'game' (length=4)
+	//   2 => string '1' (length=1)
+
 	public static function selection_of_parts($url){
 		$r_array=array();
 		$arr = parse_url($url);
