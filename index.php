@@ -3,23 +3,20 @@
 include('add_function.php');
 
 $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-echo $url;
-
 $mysqli = new mysqli("mk-nalshik.default", "Andrey", "Qwerty123", "mk-nalshik");
 
 $mysqli->query("SET NAMES 'utf8'"); 
 $mysqli->query("SET CHARACTER SET 'utf8'");
 $mysqli->query("SET SESSION collation_connection = 'utf8_general_ci'");
 
-var_dump(add_function::selection_of_parts($url));
-echo(count(add_function::selection_of_parts($url)));
+
+$segment_url = add_function::selection_of_parts($url);
 
 
 // Для endpoint  GET   /game/[slug]
-
-if (count(add_function::selection_of_parts($url)) == 3){
-
-$result = $mysqli->query("SELECT * FROM gamer_ecording ");
+if (count($segment_url) == 3){
+    
+$result = $mysqli->query("SELECT * FROM gamer_ecording WHERE slug = '".$segment_url[2]."'");
 
 $typeArray = array();
 
@@ -43,7 +40,7 @@ while($row = $result->fetch_array()) {
 
 // Для endpoint   GET   /games 
 
-if (count(add_function::selection_of_parts($url)) == 2){
+if (count($segment_url) == 2){
 
     $result = $mysqli->query("SELECT * FROM gamer_ecording ");
     $typeArray = array();
