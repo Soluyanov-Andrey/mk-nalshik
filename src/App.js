@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
 
+let a =[1,5,6,8,9];
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  
+  a.map(()=>{
+    
+    return (
+    <div className="responsive">
+      <div className="gallery">
+        <img src="Diablo.jpg" alt="Northern Lights" width="600" height="400"></img>
+      </div>
+    </div>)
+    
+  }
+  
+  )
+  )
+
+
 }
 
 export default App;
