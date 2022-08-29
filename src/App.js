@@ -8,9 +8,6 @@ function App() {
   
   const [count, setCount] = useState({})
 
-
-
-
   return (
     <div className="App">
       <nav>

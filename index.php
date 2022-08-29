@@ -18,10 +18,10 @@ if (count($segment_url) == 3){
     
 $result = $mysqli->query("SELECT * FROM gamer_ecording WHERE slug = '".$segment_url[2]."'");
 
-$typeArray = array();
+
 
 while($row = $result->fetch_array()) {
-    $gl_massages = array(
+    $typeArray = array(
 
         "id" => $row['id'],
         "slug" => $row['slug'],
@@ -33,8 +33,6 @@ while($row = $result->fetch_array()) {
     );
    
     
-    
-     array_push($typeArray, $gl_massages);
 }
 }
 
