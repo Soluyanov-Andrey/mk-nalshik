@@ -7,7 +7,7 @@ div.gallery:hover {
   border: 1px solid #777;
 }
 
-div.gallery img {
+.img {
   width: 100%;
   height: auto;
 }
@@ -26,10 +26,21 @@ div.desc {
   float: left;
   width: 24.99999%;
 }
-#like{
+.like{
   width: 15px;
   height: 15px;
 }
+#sort{
+  display: flex;
+  justify-content: flex-end;
+  height: 50px;
+  padding-right: 10px;
+}
+
+#sort img:hover{
+  cursor: pointer;
+}
+
 
 @media only screen and (max-width: 700px) {
   .responsive {

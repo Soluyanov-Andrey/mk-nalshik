@@ -21,30 +21,31 @@ useEffect(() => {
 
 
   
-  return (
-  
+  return(
+    
+  <div id="family">
+    <div id="sort"><img  src="images/sort.png"  width="30" height="30" title ="Сортировать"></img></div>
+  {
     post.map((index)=>{
       
-    return (
+    return(  
     <div className="responsive" key={index.id}>
       <div className="gallery">
       <Link to= {`/game/${index.slug}`}>
-        <img src={index.poster} alt="Northern Lights" width="600" height="400"></img>
+        <img className="img" src={index.poster} alt="Northern Lights" width="600" height="400"></img>
       </Link>
         <div>
-          <div>{index.name}</div>
-          <div> <img id="like" src="images/like.png"  width="10" height="10"></img>{index.rating}</div>
+          <div className="Completed_name">{index.name}</div>
+          <div><img className="like" src="images/like.png"  width="10" height="10"></img>{index.rating}</div>
         </div>
-          
-        
       </div>
-    </div>)
-    
+    </div>)})
   }
-  
-  )
+  </div>
+
   )
 
+  
 
 }
 
