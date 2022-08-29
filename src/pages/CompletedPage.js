@@ -24,13 +24,16 @@ useEffect(() => {
       <div>
           {
               post&&(
-                  <>
-                  <p>{post.name}</p>
+                  
+                  <div className="CompletedPage">
+                  <img src={post.poster} alt="Northern Lights" width="600" height="400"></img>
+                  <p className="Completed_name">{post.name}</p>
                   <p>{post.released}</p>
-                  <p>{post.description}</p>   
-                  <p>{post.poster}</p> 
-                  <p>{post.rating}</p> 
-                  </>
+                  <p>{post.description}</p>    
+                  <p> <img id="like" src="../images/like.png"  width="10" height="10"></img> {post.rating}</p> 
+                  </div>
+                  
+                  
               )
           }
       </div>
