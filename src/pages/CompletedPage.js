@@ -18,11 +18,21 @@ useEffect(() => {
   .then(data => setPosts(data))
   .catch(error => console.error(error))     // или ошибку, если что-то пошло не так 
 
-}, []);
+}, [id]);
 
   return(
       <div>
-          {id}
+          {
+              post&&(
+                  <>
+                  <p>{post.name}</p>
+                  <p>{post.released}</p>
+                  <p>{post.description}</p>   
+                  <p>{post.poster}</p> 
+                  <p>{post.rating}</p> 
+                  </>
+              )
+          }
       </div>
   )
 }
