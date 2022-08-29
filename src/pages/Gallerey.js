@@ -1,4 +1,4 @@
-import './App.css';
+
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
@@ -31,7 +31,10 @@ useEffect(() => {
       <Link to= {`/game/${index.slug}`}>
         <img src={index.poster} alt="Northern Lights" width="600" height="400"></img>
       </Link>
-        
+        <div>
+          <div>{index.name}</div>
+          <div> <img id="like" src="images/like.png"  width="10" height="10"></img>{index.rating}</div>
+        </div>
           
         
       </div>

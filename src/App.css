@@ -26,6 +26,10 @@ div.desc {
   float: left;
   width: 24.99999%;
 }
+#like{
+  width: 15px;
+  height: 15px;
+}
 
 @media only screen and (max-width: 700px) {
   .responsive {
@@ -45,3 +49,4 @@ div.desc {
   display: table;
   clear: both;
 }
+

@@ -1,7 +1,8 @@
 import React from "react"
+import './App.css';
 import { Routes, Route, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import Gallerey from "./Gallerey"
+import Gallerey from "./pages/Gallerey"
 import CompletedPage from "./pages/CompletedPage"
 function App() {
   
