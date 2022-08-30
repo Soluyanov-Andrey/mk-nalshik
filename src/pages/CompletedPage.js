@@ -9,7 +9,7 @@ const CompletedPage =() =>{
 
     useEffect(() => {
 
-        fetch(`http://localhost/games/${id}`, {
+        fetch(`http://localhost/game/${id}`, {
         headers: new Headers({                     // устанавливаем заголовки
         'User-agent': 'Chrome/64.0 My Own Agent'
         })

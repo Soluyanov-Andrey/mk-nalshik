@@ -2,14 +2,14 @@ import React from "react"
 import './Home.css';
 
 
-const Home = () => {
+const Home = (props) => {
 
     const messageRef = React.useRef();
     const text = "Любое значение для получения токена.";
 
     function handleSubmit(event) {
         event.preventDefault();
-        
+        props.token()
         console.log('message:', messageRef.current.value);
       }
 

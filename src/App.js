@@ -4,16 +4,19 @@ import { useEffect, useState } from "react"
 import Gallerey from "./pages/Gallerey"
 import CompletedPage from "./pages/CompletedPage"
 import Home from "./pages/Home"
+import { useNavigate } from 'react-router-dom';
 
 function App() {
  
   const [post, setPosts] = useState([]);
   const [current, currentPosts] = useState([]);
   const [sort, setSort] = useState(false);
+  const [token, tokenSort] = useState(false);
+  let navigate = useNavigate();
 
   useEffect(() => {
-
-      fetch('http://localhost/games', {
+     if(token){
+      fetch('http://localhost/game', {
        headers: new Headers({                     // устанавливаем заголовки
          'User-agent': 'Chrome/64.0 My Own Agent'
        })
@@ -21,11 +24,21 @@ function App() {
      .then(response => response.json())        // получаем ответ в виде промиса
      .then(data => setPosts(data))
      .catch(error => console.error(error))     // или ошибку, если что-то пошло не так 
-     
+      }
 
- }, []);
+ }, [token]);
+   
+ useEffect(() => {
+  if(token){
+  navigate('game');
+  }
+}, [token]);
 
+ let token_fn = () => { 
+   
+  tokenSort(true);
 
+};
 
   let choice_fn = () => { 
    
@@ -71,7 +84,7 @@ function App() {
 
         {/* Define all the routes */}
         <Routes>
-          <Route path="/" element={<Home/>}></Route>
+          <Route path="/" element={<Home token = {token_fn}/>}></Route>
           <Route path="game" element={<Gallerey get = {post} choice = {sorting}/>}></Route>
           <Route path="game/:id/" element={<CompletedPage/>}></Route>
           <Route path="*" element={<NotFound />}></Route>
