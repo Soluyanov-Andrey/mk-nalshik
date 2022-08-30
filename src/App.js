@@ -71,7 +71,7 @@ function App() {
         {/* Define all the routes */}
         <Routes>
           <Route path="/" element={<Home/>}></Route>
-          <Route path="game" element={<Gallerey get = {post} />}></Route>
+          <Route path="game" element={<Gallerey get = {post} choice = {sorting}/>}></Route>
           <Route path="game/:id/" element={<CompletedPage/>}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
