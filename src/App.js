@@ -67,10 +67,18 @@ function App() {
         </ul>
       </nav>
       <div className="main">
+
+      <div id="family">
+        <div id="sort">
+          <img onClick={() => sorting()} src="images/sort.png"  width="30" height="30" title ="Сортировать"></img>
+       </div>
+       </div>
+
+
         {/* Define all the routes */}
         <Routes>
           <Route path="/" element={<Home/>}></Route>
-          <Route path="game" element={<Gallerey get = {post} choice = {sorting} />}></Route>
+          <Route path="game" element={<Gallerey get = {post} />}></Route>
           <Route path="game/:id/" element={<CompletedPage/>}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
