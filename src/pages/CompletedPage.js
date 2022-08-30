@@ -7,18 +7,18 @@ const CompletedPage =() =>{
 
   const [post, setPosts] = useState(null);
 
-useEffect(() => {
+    useEffect(() => {
 
-    fetch(`http://localhost/games/${id}`, {
-    headers: new Headers({                     // устанавливаем заголовки
-      'User-agent': 'Chrome/64.0 My Own Agent'
+        fetch(`http://localhost/games/${id}`, {
+        headers: new Headers({                     // устанавливаем заголовки
+        'User-agent': 'Chrome/64.0 My Own Agent'
+        })
     })
-  })
-  .then(response => response.json())        // получаем ответ в виде промиса
-  .then(data => setPosts(data))
-  .catch(error => console.error(error))     // или ошибку, если что-то пошло не так 
+    .then(response => response.json())        // получаем ответ в виде промиса
+    .then(data => setPosts(data))
+    .catch(error => console.error(error))     // или ошибку, если что-то пошло не так 
 
-}, [id]);
+    }, [id]);
 
   return(
       <div>
