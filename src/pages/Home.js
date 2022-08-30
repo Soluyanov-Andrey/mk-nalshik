@@ -1,20 +1,30 @@
 import React from "react"
 import './Home.css';
 
+
 const Home = () => {
-    
+
+    const messageRef = React.useRef();
+    const text = "Любое значение для получения токена.";
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        
+        console.log('message:', messageRef.current.value);
+      }
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
         <div className = "flex">
             <div className = "flex-textarea-button">
             <div className="blok1">
-                <form id="form" action="">
-                    <textarea spellcheck="false" className="colortext" name="comment">Любое значение для получения токена.</textarea>
-                </form>
+                    <textarea spellCheck="false" className="colortext" name="comment" ref={messageRef} defaultValue={text}>
+                    
+                    </textarea>
+               
             </div>
             <div className="blok2">
-              <button className="button">Ввод</button>
+              <button type="submi" className="button">Ввод</button>
             </div>
             </div>
         </div>
