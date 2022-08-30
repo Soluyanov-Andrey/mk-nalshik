@@ -1,13 +1,19 @@
 
+
 import { Link } from "react-router-dom"
 
 const Gallerey = (props) =>  {
  
   return(
     
-    <>
+  <div id="family">
+    <div id="sort">
+      <img onClick={() => props.choice()} src="images/sort.png"  width="30" height="30" title ="Сортировать"></img>
+    </div>
     {
-      props.get.map((index)=>(  
+      props.get.map((index)=>{
+        
+      return(  
       <div className="responsive" key={index.id}>
         <div className="gallery">
 
@@ -20,10 +26,9 @@ const Gallerey = (props) =>  {
           </div>
         </div>
       </div>
-      ))
+      )})
     }
-    </>
-  
+  </div>
   )
 
   
