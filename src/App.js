@@ -1,9 +1,10 @@
 import React from "react"
-import './App.css';
 import { Routes, Route, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import Gallerey from "./pages/Gallerey"
 import CompletedPage from "./pages/CompletedPage"
+import Home from "./pages/Home"
+
 function App() {
  
   const [post, setPosts] = useState([]);
@@ -79,11 +80,6 @@ function App() {
       
     </div>
   )
-}
-
-export const Home = () => {
-
-  return <div>You are in Home page</div>
 }
 
 export const NotFound = () => {

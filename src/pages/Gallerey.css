@@ -60,13 +60,3 @@ div.desc {
   display: table;
   clear: both;
 }
-
-.CompletedPage{
-  padding-left: 10px;
-  width: 600px;
-  height: auto;
-}
-.Completed_name{
-  font-size: 20px;
-  font-weight: bold;
-}
