@@ -1,17 +1,69 @@
 
 import { Link } from "react-router-dom"
 import './Gallerey.css';
+import { useEffect, useState } from "react"
 
 const Gallerey = (props) =>  {
- 
+ const [post, setPosts] = useState([]);
+  const [current, currentPosts] = useState([]);
+  const [sort, setSort] = useState(false);
+
+  useEffect(() => {
+    
+      fetch('http://localhost/games', {
+       headers: new Headers({                     // устанавливаем заголовки
+        // "Content-Type": "application/json",
+        // Authorization: `Bearer ${Userfront.accessToken()}`,
+         
+       })
+       })
+     .then(response => response.json())        // получаем ответ в виде промиса
+     .then(data => setPosts(data))
+     .catch(error => console.error(error))     // или ошибку, если что-то пошло не так 
+     
+
+ }, []);
+
+
+
+  let choice_fn = () => { 
+   
+      (sort)? setSort(false) : setSort(true);
+    
+  };
+
+
+  let sorting = () => { 
+  
+    if(!sort){
+      
+      // Записываем исходный вариант.
+      let newArray = post.slice();
+      currentPosts(post.slice());
+
+      // Производим сортировку.
+      newArray.sort((a, b)=>{return a.rating - b.rating});
+      newArray.reverse();
+      setPosts(newArray);
+      choice_fn();
+      return;
+    }
+    choice_fn();
+    setPosts(current);
+    
+    
+    
+  };
+
+
   return(
     
   <div id="family">
     <div id="sort">
-      <img onClick={() => props.choice()} src="images/sort.png"  width="30" height="30" title ="Сортировать"></img>
+      <img onClick={() => sorting()} src="images/sort.png"  width="30" height="30" title ="Сортировать"></img>
     </div>
     {
-      props.get.map((index)=>{
+      post.map((index)=>{
         
       return(  
       <div className="responsive" key={index.id}>
