@@ -36,7 +36,7 @@ function App() {
         <Routes>
           {/* Userfront.accessToken()) ?<Gallerey/>:<Home/> */}
           <Route path="/" element={<Home/>}></Route>
-          <Route path="game" element={<Gallerey cur={current.current}/>}></Route>
+          <Route path="games" element={<Gallerey cur={current.current}/>}></Route>
           <Route path="game/:id/" element={<CompletedPage cur={current.current}/>}></Route>
           <Route path="input" element={<Input/>}></Route>
           <Route path="*" element={<NotFound />}></Route>
@@ -51,7 +51,7 @@ export const Input= () => {
 
   const navigate = useNavigate();
   useEffect(() => {
-    navigate("/game")
+    navigate("/games")
   }, []);
   
   return (
