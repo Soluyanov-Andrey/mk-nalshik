@@ -12,9 +12,21 @@ $mysqli->query("SET SESSION collation_connection = 'utf8_general_ci'");
 
 $segment_url = add_function::selection_of_parts($url);
 
+if (count($segment_url) == 1 && $segment_url[0]==""){
+$section = file_get_contents('index.html');
+echo($section);
+exit();
+}
+
+if (count($segment_url) == 2 && $segment_url[1]=="input"){
+
+    $section = file_get_contents('index.html');
+    echo($section);
+    exit();
+    }
 
 // Для endpoint  GET   /game/[slug]
-if (count($segment_url) == 3){
+if (count($segment_url) == 3 ){
     
 $result = $mysqli->query("SELECT * FROM gamer_ecording WHERE slug = '".$segment_url[2]."'");
 
