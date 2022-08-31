@@ -11,8 +11,9 @@ Userfront.init("8nw8zv5b");
 
 function App() {
  
+  const current= useRef([]);
+  current.current = Userfront.accessToken();
   
-
   return (
     <div className="App">
         {/* <nav>
@@ -35,8 +36,8 @@ function App() {
         <Routes>
           {/* Userfront.accessToken()) ?<Gallerey/>:<Home/> */}
           <Route path="/" element={<Home/>}></Route>
-          <Route path="game" element={<Gallerey/>}></Route>
-          <Route path="game/:id/" element={<CompletedPage/>}></Route>
+          <Route path="game" element={<Gallerey cur={current.current}/>}></Route>
+          <Route path="game/:id/" element={<CompletedPage cur={current.current}/>}></Route>
           <Route path="input" element={<Input/>}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react"
 import './CompletedPage.css';
-const CompletedPage =() =>{
+const CompletedPage =(props) =>{
     
   const {id} = useParams();
 
@@ -11,7 +11,8 @@ const CompletedPage =() =>{
 
         fetch(`http://localhost/game/${id}`, {
         headers: new Headers({                     // устанавливаем заголовки
-        'User-agent': 'Chrome/64.0 My Own Agent'
+            "Content-Type": "text/html; charset=utf-8",
+             Authorization: `Bearer ${props.cur}`
         })
     })
     .then(response => response.json())        // получаем ответ в виде промиса

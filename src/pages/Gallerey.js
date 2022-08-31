@@ -13,8 +13,8 @@ const Gallerey = (props) =>  {
     
       fetch('http://localhost/games', {
        headers: new Headers({                     // устанавливаем заголовки
-        // "Content-Type": "application/json",
-        // Authorization: `Bearer ${Userfront.accessToken()}`,
+        "Content-Type": "text/html; charset=utf-8",
+        Authorization: `Bearer ${props.cur}`
          
        })
        })
