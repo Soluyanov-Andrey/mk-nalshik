@@ -4,10 +4,9 @@ import './Gallerey.css';
 import { useEffect, useState, useRef } from "react"
 
 const Gallerey = (props) =>  {
- const [post, setPosts] = useState([]);
-  const [current, currentPosts] = useState([]);
+  const [post, setPosts] = useState([]);
   
-
+  const current= useRef([]);
   const sort = useRef(false);
   
   useEffect(() => {
@@ -41,7 +40,7 @@ const Gallerey = (props) =>  {
       
       // Записываем исходный вариант.
       let newArray = post.slice();
-      currentPosts(post.slice());
+      current.current = post.slice();
 
       // Производим сортировку.
       newArray.sort((a, b)=>{return a.rating - b.rating});
@@ -51,7 +50,7 @@ const Gallerey = (props) =>  {
       return;
     }
     choice_fn();
-    setPosts(current);
+    setPosts(current.current);
     
     
     
