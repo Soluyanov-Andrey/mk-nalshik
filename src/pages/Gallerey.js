@@ -1,13 +1,15 @@
 
 import { Link } from "react-router-dom"
 import './Gallerey.css';
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 
 const Gallerey = (props) =>  {
  const [post, setPosts] = useState([]);
   const [current, currentPosts] = useState([]);
-  const [sort, setSort] = useState(false);
+  
 
+  const sort = useRef(false);
+  
   useEffect(() => {
     
       fetch('http://localhost/games', {
@@ -27,15 +29,15 @@ const Gallerey = (props) =>  {
 
 
   let choice_fn = () => { 
-   
-      (sort)? setSort(false) : setSort(true);
+    
+      (sort.current)? sort.current = false : sort.current = true;
     
   };
 
 
   let sorting = () => { 
   
-    if(!sort){
+    if(!sort.current){
       
       // Записываем исходный вариант.
       let newArray = post.slice();
