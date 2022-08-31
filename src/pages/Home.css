@@ -16,39 +16,6 @@ img{vertical-align:top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
 /*--------------------*/
 
-.button {
-    background-color: #3493d7;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 10px;
-  }
-  
-  .colortext {
-    border-width: 1px;
-    border-style: solid;
-    border-color: aliceblue;
-    border-radius: 10px;
-    height: 150px;
-    width: 500px;
-    font-size: 20px;
-    background-color: rgba(127, 255, 212, 0);
-    color: rgb(255, 255, 255);
-  }
-  
-  .colortext:focus {
-    border-color: #bdbdbd;
-    outline: 0;
-    font-size: 20px;
-    box-shadow: 0 0 0 0.1rem rgba(171, 170, 170, 0.805);
-  }
-  
   .flex {
     background-image: url("/images/Colorful-rays.jpg");
     height: 100vh;
@@ -56,25 +23,11 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
     justify-content: center;
     align-items: center;
   }
-  .flex-textarea-button {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .blok2 {
-    padding-left: 400px;
-    padding-top: 5px;
- 
-  }
 
-    @media screen and (max-width: 480px) {
-      .colortext {
-      height: 150px;
-      width: 300px;
-   }
-  .blok2 {
-    padding-left: 200px;
-    padding-top: 5px;
- 
+  .blok p{
+    font-size: 20px; 
+    color: rgb(243, 238, 238);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
   }
-    }
+ 
+  

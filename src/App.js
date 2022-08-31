@@ -4,41 +4,32 @@ import { useEffect, useState } from "react"
 import Gallerey from "./pages/Gallerey"
 import CompletedPage from "./pages/CompletedPage"
 import Home from "./pages/Home"
-import { useNavigate } from 'react-router-dom';
+import Userfront from "@userfront/react";
+Userfront.init("8nw8zv5b");
 
 function App() {
  
   const [post, setPosts] = useState([]);
   const [current, currentPosts] = useState([]);
   const [sort, setSort] = useState(false);
-  const [token, tokenSort] = useState(false);
-  let navigate = useNavigate();
 
   useEffect(() => {
-     if(token){
-      fetch('http://localhost/game', {
+    
+      fetch('http://localhost/games', {
        headers: new Headers({                     // устанавливаем заголовки
-         'User-agent': 'Chrome/64.0 My Own Agent'
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${Userfront.accessToken()}`,
+         
        })
        })
      .then(response => response.json())        // получаем ответ в виде промиса
      .then(data => setPosts(data))
      .catch(error => console.error(error))     // или ошибку, если что-то пошло не так 
-      }
+     
 
- }, [token]);
-   
- useEffect(() => {
-  if(token){
-  navigate('game');
-  }
-}, [token]);
+ }, []);
 
- let token_fn = () => { 
-   
-  tokenSort(true);
 
-};
 
   let choice_fn = () => { 
    
@@ -70,21 +61,12 @@ function App() {
   };
   return (
     <div className="App">
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="game">game</Link>
-          </li>
-        </ul>
-      </nav>
+     
       <div className="main">
 
         {/* Define all the routes */}
         <Routes>
-          <Route path="/" element={<Home token = {token_fn}/>}></Route>
+          <Route path="/" element={<Home/>}></Route>
           <Route path="game" element={<Gallerey get = {post} choice = {sorting}/>}></Route>
           <Route path="game/:id/" element={<CompletedPage/>}></Route>
           <Route path="*" element={<NotFound />}></Route>
@@ -94,6 +76,8 @@ function App() {
     </div>
   )
 }
+
+
 
 export const NotFound = () => {
   return <div>This is a 404 page</div>

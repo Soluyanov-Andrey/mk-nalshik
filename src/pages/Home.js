@@ -1,34 +1,29 @@
 import React from "react"
 import './Home.css';
+import Userfront from "@userfront/react";
+Userfront.init("8nw8zv5b");
 
+    const LoginForm = Userfront.build({
+      toolId: "rdlrro",
+    });
 
 const Home = (props) => {
-
-    const messageRef = React.useRef();
-    const text = "Любое значение для получения токена.";
-
-    function handleSubmit(event) {
-        event.preventDefault();
-        props.token()
-        console.log('message:', messageRef.current.value);
-      }
-
+    
     return (
-        <form onSubmit={handleSubmit}>
+        
         <div className = "flex">
             <div className = "flex-textarea-button">
-            <div className="blok1">
-                    <textarea spellCheck="false" className="colortext" name="comment" ref={messageRef} defaultValue={text}>
-                    
-                    </textarea>
+            <div className="blok">
+            <p>Login: andrey@yandex.ru</p>
+            <p>Password: test123456789</p>
+            <br></br>
+            <LoginForm />       
                
             </div>
-            <div className="blok2">
-              <button type="submi" className="button">Ввод</button>
-            </div>
+           
             </div>
         </div>
-        </form>
+        
     )
 }
 export default Home;

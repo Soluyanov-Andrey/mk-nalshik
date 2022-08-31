@@ -14,7 +14,7 @@ $segment_url = add_function::selection_of_parts($url);
 
 
 // Для endpoint  GET   /game/[slug]
-if (count($segment_url) == 3 && $segment_url[1] == 'game'){
+if (count($segment_url) == 3){
     
 $result = $mysqli->query("SELECT * FROM gamer_ecording WHERE slug = '".$segment_url[2]."'");
 
@@ -38,7 +38,7 @@ while($row = $result->fetch_array()) {
 
 // Для endpoint   GET   /games 
 
-if (count($segment_url) == 2 && $segment_url[1] == 'game'){
+if (count($segment_url) == 2){
 
     $result = $mysqli->query("SELECT * FROM gamer_ecording ");
     $typeArray = array();
